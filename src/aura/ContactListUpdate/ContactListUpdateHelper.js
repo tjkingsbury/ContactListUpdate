@@ -13,8 +13,6 @@
         action.setCallback(this,function(response){
             var state = response.getState();
             if(state === "SUCCESS"){
-                console.log('success');
-                console.log('response return value: ' + JSON.stringify(response.getReturnValue()));
                 component.set("v.contacts",response.getReturnValue());
                 console.log('component: ' + JSON.stringify(component.get("v.contacts")) );
             }

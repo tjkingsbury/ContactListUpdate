@@ -16,17 +16,14 @@
     handleClick : function(component, event, helper){
         var dTable = component.find("contactTable");
         var selectedRows = dTable.getSelectedRows();
-        console.log('selected rows: ' + JSON.stringify(selectedRows));
 
         var ids = new Array();
         for(var i =0; i < selectedRows.length; i++){
             console.log('id: ' + selectedRows[i].Id);
             ids.push(selectedRows[i].Id);
         }
-        console.log('id list: ' + ids);
         var idListJson = JSON.stringify(ids);
 
-        console.log('id list json: ' + idListJson);
         var action = component.get("c.updateContacts");
         action.setParams({
             idList : idListJson
