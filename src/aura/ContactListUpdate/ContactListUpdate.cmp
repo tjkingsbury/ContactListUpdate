@@ -1,0 +1,25 @@
+<!--
+ - Created by Turbo_000 on 10/20/2018.
+ -->
+
+<aura:component controller="ContactListUpdateController" implements="force:hasRecordId,flexipage:availableForAllPageTypes" description="ContactListUpdate">
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="contacts" type="Contact[]"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <div style="height: 300px">
+        <h1>Selected Rows: {! v.selectedRowsCount}</h1>
+        <lightning:datatable
+            aura:id="contactTable"
+            columns="{! v.columns }"
+            data="{!v.contacts}"
+            keyField="id"
+            />
+    </div>
+
+    <lightning:button variant="brand" label="Submit" onclick="{! c.handleClick }" />
+
+
+</aura:component>
